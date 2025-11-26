@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA</title>
+    <link rel="icon" type="img/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-left">
+            <img src="img/header/compra.png" alt="Icono de Menú" class="header-icon-left" id="abrirModal">
+        </div>
+
+        <div class="header-center">
+            <a href="../index.html">
+              <img src="img/header/logo principal.png" alt="AURA Logo" class="header-logo">
+            </a>
+        </div>
+
+        <div class="header-right">
+          <input type="text" id="barraBusqueda" placeholder="Buscar productos..." class="barra-busqueda-oculta">
+          <img src="img/header/busqueda.png" alt="Icono de Búsqueda" class="header-icon-right" id="abrirBarraBusqueda">
+          <img src="img/header/like.png" alt="Icono de Favoritos" class="header-icon-right" id="abrirModalFavoritos">
+        </div>
+    </header>
+
+    <div id="miModal" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h2>🛍️ Mi Carrito de Compras</h2>
+        <p>Aquí puedes ver tus productos y gestionar tu compra.</p>
+        
+        <ul style="list-style: none; padding: 0; text-align: left;">
+            <li>No haz agregado algún producto</li>
+            <li style="border-top: 1px solid #ddd; margin-top: 10px; padding-top: 10px; font-weight: bold;">TOTAL: $0 MXN</li>
+        </ul>
+        
+        <button style="background-color: #4b2354; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">Ir a Pagar</button>
+      </div>
+    </div>
+
+    <div id="miModalFavoritos" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar cerrarFavoritos">&times;</span> 
+        <h2>❤️ Mi lista de deseos</h2>
+        <p>Los artículos que más te gustan están aquí.</p>
+        <a href="../Lista de favoritos/index.html" style="text-decoration: none;">
+            <button button style="background-color: #4b2354; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                Ver mi lista de deseos
+            </button>
+        </a>
+        </div>
+    </div>
+ 
+    <nav id="main-nav" class="transparent-nav">
+        <ul>
+            <li><a href="#seccion1">Temporada</a></li>
+            <li><a href="#seccion2">Tendencias</a></li>
+            <li><a href="#seccion3">Accesorios</a></li>
+            <li><a href="#seccion4">Ofertas</a></li>
+            <li><a href="#seccion5">Contacto</a></li>
+        </ul>
+    </nav>
+ 
+    <script>
+
+      /*carrito de compras*/
+      var modal = document.getElementById("miModal");
+      var btn = document.getElementById("abrirModal"); 
+      var span = document.getElementsByClassName("cerrar")[0]; 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      /*carrito de compras*/
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.getElementById('main-nav');
+            const scrollThreshold = 50; 
+        
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > scrollThreshold) {
+                    nav.classList.add('scrolled-nav');
+                    nav.classList.remove('transparent-nav');
+                } else {
+                    nav.classList.remove('scrolled-nav');
+                    nav.classList.add('transparent-nav');
+                }
+            });
+            window.dispatchEvent(new Event('scroll'));
+        });
+
+/* barra de búsqueda */
+    var btnBusqueda = document.getElementById("abrirBarraBusqueda");
+    var barraBusqueda = document.getElementById("barraBusqueda");
+    
+    btnBusqueda.onclick = function() {
+        // Alterna la clase: si está oculta, la hace visible, y viceversa
+        barraBusqueda.classList.toggle('barra-busqueda-visible');
+        
+        // Opcional: Si está visible, enfoca el cursor automáticamente para escribir
+        if (barraBusqueda.classList.contains('barra-busqueda-visible')) {
+            barraBusqueda.focus();
+        }
+    };
+
+var modalFavoritos = document.getElementById("miModalFavoritos");
+var btnFavoritos = document.getElementById("abrirModalFavoritos"); 
+var spanFavoritos = document.getElementsByClassName("cerrarFavoritos")[0]; 
+
+btnFavoritos.onclick = function() {
+  modalFavoritos.style.display = "block";
+}
+
+</script>
+
+<script>
+      /* favoritos */
+      var modalFavoritos = document.getElementById("miModalFavoritos");
+      var btnFavoritos = document.getElementById("abrirModalFavoritos"); 
+      var spanFavoritos = document.getElementsByClassName("cerrarFavoritos")[0]; 
+
+      btnFavoritos.onclick = function() {
+          modalFavoritos.style.display = "block";
+      }
+
+      spanFavoritos.onclick = function() {
+          modalFavoritos.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+          if (event.target == modal) { 
+              modal.style.display = "none";
+          }
+          if (event.target == modalFavoritos) { 
+              modalFavoritos.style.display = "none";
+          }
+      }
+</script>
+
+  <section>
+          <img src="img/tendencias y accsesorios/temporadamujers.jpeg" alt="Banner Tendencias" class="bannerotoño">
+  </div>
+
+    <h1 id="seccion1">OTOÑO 2025</h1>
+    <div class="linea"></div>
+  <div class="contenedor">
+    <div class="producto">
+      <img src="https://www.na-kd.com/cdn-cgi/image/quality=80,sharpen=0.3,width=846/globalassets/ombre_knitted_oversized_sweater-1100-012204-0212_0044.jpg" alt="Producto 1">
+      <h3><a href="https://www.na-kd.com/en/products/ombre-knitted-oversized-sweater-burgundy-1100-012204-0212" target="_blank">Suéter Tejido de Lana</a></h3>
+
+      <p>$279.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="https://www.na-kd.com/cdn-cgi/image/quality=80,sharpen=0.3,width=846/globalassets/anusia_nowak_1100-010313-0001.jpg" alt="Producto 2">
+      <h3><a href="https://www.na-kd.com/en/products/lace-maxi-skirt-white-1100-010313-0001?" target="_blank">Falda Blanca Encaje</a></h3>
+      <p>$760.38 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img class="" src="https://media.sezane.com/image/upload/c_fill,d_placeholder_dark.png,fl_progressive:semi,h_816,q_auto:best,w_582/mrjqnqrzzeynjf4fbrhh.jpg" alt="Producto 3">
+      <h3><a href="https://www.sezane.com/en-en/product/albane-loafers/glossy-burgundy#size-UK%202" target="_blank">Mocasines Piel Sintética</a></h3>
+      <p>$209.00 MXN</p>
+    </div>
+
+  <section>
+          <img src="img/tendencias y accsesorios/Tendencias.png" alt="" class="banner">
+  </div>
+  </section>
+
+       <section>
+          <img src="img/tendencias y accsesorios/tendenciasmujers.jpeg" alt="Banner accesorios" class="bannertendencias">
+  </div>
+  </section>
+  
+  <h1 id="seccion2">TENDENCIAS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/1 rosa.webp" alt="Producto 1">
+      <h3><a href="https://aspirepink.com/products/grandeur-rose%E2%84%A2-varsity-jacket" target="_blank">GRANDEUR ROSÉ™ VARSITY JACKET</a></h3>
+
+      <p>$267.49 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/2 morado.webp" alt="Producto 2">
+      <h3><a href="https://www.yitai.la/products/lavender-guipure-shorts" target="_blank">Lavender Guipure Shorts</a></h3>
+      <p>$140.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/3 pantalon.png" alt="Producto 3">
+      <h3><a href="https://chiclara.com/products/elegant-evening-lace-embroidered-denim-jeans" target="_blank">Lace Embroidered Denim Jeans</a></h3>
+      <p>$128.00 MXN</p>
+    </div>
+
+     <section>
+          <img src="img/tendencias y accsesorios/BANNER accesorios.png" alt="Banner accesorios" class="banner">
+  </div>
+  </section>
+
+     <h1 id="seccion3">ACCESORIOS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/accesorio 1.webp" alt="Producto 1">
+      <h3><a href="https://us.mingalondon.com/products/nova-star-claw-clip?pr_prod_strat=jac&pr_rec_id=306d3550b&pr_rec_pid=15048205500742&pr_ref_pid=8651914412358&pr_seq=uniform" target="_blank">Nova Star Claw Clip</a></h3>
+
+      <p>$666.69 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/accesorio 2.webp" alt="Producto 2">
+      <h3><a href="https://us.mingalondon.com/products/loving-bunny-beaded-necklace" target="_blank">Minga x Esther Bunny Beaded Necklace</a></h3>
+      <p>$797.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/tendencias y accsesorios/accesorio 3.webp" alt="Producto 3">
+      <h3><a href="https://us.mingalondon.com/products/girl-brain-pink-headband" target="_blank">Girl Brain Pink Headband</a></h3>
+      <p>$420.00 MXN</p>
+    </div>
+
+  </div>
+
+  <section>
+          <img src="img/tendencias y accsesorios/ofertasmujers.jpeg" alt="Banner ofertass" class="bannerofertas">
+  </div>
+  </section>
+
+<body>
+     <h1 id="seccion4">OFERTAS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/ofertas/sueter png.png" alt="Producto 1">
+      <h3><a href="https://www.cyamoda.com/sueter-rojo-botones/3114077.html" target="_blank">SUETER ABIERTO BOTONES</a></h3>
+
+      <p>$48.36 MXN
+</p>
+    </div>
+
+    <div class="producto">
+      <img src="https://m.media-amazon.com/images/I/81+RTreTV-L._AC_SX569_.jpg" alt="Producto 2">
+      <h3><a href="https://www.amazon.ca/Closemate-Womens-thermal-Stocking-Assorted-001/dp/B0DDQ4FBDX/ref=pd_rhf_dp_s_pd_crcbs_d_sccl_1_5/135-3180720-0426403?pd_rd_w=gQit1&content-id=amzn1.sym.e89babb7-a2d4-4ad4-ba2d-9d9626be644f&pf_rd_p=e89babb7-a2d4-4ad4-ba2d-9d9626be644f&pf_rd_r=2EXEX34DM0X98R0WSKY9&pd_rd_wg=J6XAs&pd_rd_r=c12d2bbf-63d7-4445-aede-fbe77a6008e6&pd_rd_i=B0DDQ4FBDX&th=1&psc=1" target="_blank">Calcetines Temales</a></h3>
+      <p>$26.86 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/ofertas/Vestido Manga Corta.png" alt="Producto 3">
+      <h3><a href="https://www.cyamoda.com/vestido-manga-corta-flores/3108826.html" target="_blank">VESTIDO MANGA CORTA FLORES</a></h3>
+      <p>$42.98 MXN</p>
+    </div>
+  </div>
+
+    <footer id="seccion5">
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <ul class="social-list">
+        <li><img src="img/footer/IGicon.png" alt="Instagram"> Instagram</li>
+        <li><img src="img/footer/FBicon.png" alt="Facebook"> Facebook</li>
+        <li><img src="img/footer/TTicon.png" alt="TikTok"> TikTok</li>
+        <li><img src="img/footer/PIicon.png" alt="Pinterest"> Pinterest</li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <div class="contact-item">
+        <img src="img/footer/correoicon.png" alt="Correo"> aura@corroreal.com
+      </div>
+      <div class="contact-item">
+        <img src="img/footer/Phoneicon.png" alt="Teléfono"> (656) 420 6969
+      </div>
+    </div>
+
+    <div class="footer-section subscribe">
+      <h3>Suscríbete</h3>
+      <p>¡Escribe tu correo para enterarte de lo último en ofertas!</p>
+      <input type="email" placeholder="ejemplo@correo.com" />
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 AURA, All rights reserved.</p>
+      <img src="img/footer/logofooter.png" alt="Logo AURA" width="307px" height="113px">
+    </div>
+  </footer>
+
+</body>
+</html>
