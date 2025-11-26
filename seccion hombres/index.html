@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA</title>
+    <link rel="icon" type="img/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-left">
+            <img src="img/header/compra.png" alt="Icono de Menú" class="header-icon-left" id="abrirModal">
+        </div>
+
+        <div class="header-center">
+            <a href="../index.html">
+              <img src="img/header/logo principal.png" alt="AURA Logo" class="header-logo">
+            </a>
+        </div>
+
+        <div class="header-right">
+          <input type="text" id="barraBusqueda" placeholder="Buscar productos..." class="barra-busqueda-oculta">
+          <img src="img/header/busqueda.png" alt="Icono de Búsqueda" class="header-icon-right" id="abrirBarraBusqueda">
+          <img src="img/header/like.png" alt="Icono de Favoritos" class="header-icon-right" id="abrirModalFavoritos">
+        </div>
+    </header>
+
+    <div id="miModal" class="modal">
+      <div class="modal-contenido">
+        <span class="cerrar">&times;</span>
+        <h2>🛍️ Mi Carrito de Compras</h2>
+        <p>Aquí puedes ver tus productos y gestionar tu compra.</p>
+        
+        <ul style="list-style: none; padding: 0; text-align: left;">
+            <li>No haz agregado algún producto</li>
+            <li style="border-top: 1px solid #ddd; margin-top: 10px; padding-top: 10px; font-weight: bold;">TOTAL: $0 MXN</li>
+        </ul>
+        
+        <button style="background-color: #4b2354; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">Ir a Pagar</button>
+      </div>
+    </div>
+
+    <div id="miModalFavoritos" class="modal">
+      <div class="modal-contenido">
+          <span class="cerrar cerrarFavoritos">&times;</span> 
+          <h2>❤️ Mi lista de deseos</h2>
+          <p>Los artículos que más te gustan están aquí.</p>
+          <a href="../Lista de favoritos/index.html" style="text-decoration: none;">
+              <button button style="background-color: #4b2354; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin-top: 15px;">
+                  Ver mi lista de deseos
+              </button>
+          </a>
+      </div>
+    </div>
+ 
+    <nav id="main-nav" class="transparent-nav">
+      <ul>
+            <li><a href="#seccion1">Temporada</a></li>
+            <li><a href="#seccion2">Tendencias</a></li>
+            <li><a href="#seccion3">Accesorios</a></li>
+            <li><a href="#seccion4">Ofertas</a></li>
+            <li><a href="#seccion5">Contacto</a></li>
+        </ul>
+    </nav>
+ 
+    <script>
+
+      /*carrito de compras*/
+      var modal = document.getElementById("miModal");
+      var btn = document.getElementById("abrirModal"); 
+      var span = document.getElementsByClassName("cerrar")[0]; 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      /*carrito de compras*/
+        document.addEventListener('DOMContentLoaded', function() {
+            const nav = document.getElementById('main-nav');
+            const scrollThreshold = 50; 
+        
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > scrollThreshold) {
+                    nav.classList.add('scrolled-nav');
+                    nav.classList.remove('transparent-nav');
+                } else {
+                    nav.classList.remove('scrolled-nav');
+                    nav.classList.add('transparent-nav');
+                }
+            });
+            window.dispatchEvent(new Event('scroll'));
+        });
+      
+        /* barra de búsqueda */
+    var btnBusqueda = document.getElementById("abrirBarraBusqueda");
+    var barraBusqueda = document.getElementById("barraBusqueda");
+    
+    btnBusqueda.onclick = function() {
+        barraBusqueda.classList.toggle('barra-busqueda-visible');
+        if (barraBusqueda.classList.contains('barra-busqueda-visible')) {
+            barraBusqueda.focus();
+        }
+    };
+
+var modalFavoritos = document.getElementById("miModalFavoritos");
+var btnFavoritos = document.getElementById("abrirModalFavoritos"); 
+var spanFavoritos = document.getElementsByClassName("cerrarFavoritos")[0]; 
+
+btnFavoritos.onclick = function() {
+  modalFavoritos.style.display = "block";
+}
+    </script>
+
+    <script>
+      /* favoritos */
+      var modalFavoritos = document.getElementById("miModalFavoritos");
+      var btnFavoritos = document.getElementById("abrirModalFavoritos"); 
+      var spanFavoritos = document.getElementsByClassName("cerrarFavoritos")[0]; 
+
+      btnFavoritos.onclick = function() {
+          modalFavoritos.style.display = "block";
+      }
+
+      spanFavoritos.onclick = function() {
+          modalFavoritos.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+          if (event.target == modal) { 
+              modal.style.display = "none";
+          }
+          if (event.target == modalFavoritos) { 
+              modalFavoritos.style.display = "none";
+          }
+      }
+    </script>
+
+  <section>
+          <img src="img/2.png" alt="Banner Tendencias" class="bannerotoño">
+  </div>
+   <h1 id="seccion1">OTOÑO 2025</h1>
+     <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/temporada M/temp.png" alt="Producto 1">
+      <h3><a href="https://www.gucci.com/mx/es_mx/pr/men/ready-to-wear-for-men/formalwear-for-men/jackets-for-men/doub…" target="_blank"> Chaqueta de tejido de lana</a></h3>
+
+      <p>$8500.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/temporada M/temporada 1.jpg" alt="Producto 2">
+      <h3><a href="https://www.viviennewestwood.com/en-mx/men/clothing/t-shirts-and-polos/classic-polo-red-green/2H01000P-J009T--RED-GREEN.html" target="_blank">Classic Polo</a></h3>
+      <p>$300.30 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img class="" src="img/temporada M/download.png" alt="Producto 3">
+      <h3><a href="https://www.carhartt.com/product/106671/loose-fit-firm-duck-bib-overall" target="_blank">Overol firm duck</a></h3>
+      <p>$209.00 MXN</p>
+    </div>
+
+  <section>
+          <img src="img/3.png" alt="Banner Tendencias" class="banner">
+  </div>
+  </section>
+  <h1 id="seccion2">TENDENCIAS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/Tendencias M/tendencia 1.jpg" alt="Producto 1">
+      <h3><a href="https://www.ebay.com/itm/365103058023?chn=ps&mkevt=1&mkcid=28&google_free_listing_actio…" target="_blank">Medieval Gothic </a></h3>
+
+      <p>$613.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/Tendencias M/dermin.jpg" alt="Producto 2">
+      <h3><a href="https://raejeans.com/products/y2k-embroidered-loose-wide-leg-jeans?variant=51825036493114&pins_campaign_id=626757041190&utm_campaign=626757041190&utm_medium=PaidSocial&utm_source=Pinterest&utm_content=2680088220333&pp=0&epik=dj0yJnU9SjYzZHE2UVZ3cGc3by1pekRHOVlKYXlHbFpQSmVJUGomcD0xJm49Q29VTXo0WUM2M0RkMDROLUg3emwzQSZ0PUFBQUFBR2tkU2dr
+" target="_blank">Y2K embroidered loose jeans</a></h3>
+      <p>$140.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/Tendencias M/Screenshot 2025-11-19 041214.png" alt="Producto 3">
+      <h3><a href="https://articulo.mercadolibre.com.mx/MLM-4357461106-playera-vintage-hombre-alucard-hellsing-anime-grafico-_JM?searchVariation=187007393250&gallery_type=horizontal&sizeForPhoto=416#polycard_client=recommendations_home_pom_v2p-recommendations&reco_backend=ranker_retrieval_system_vpp_v2p&reco_client=home_pom_v2p-recommendations&reco_item_pos=3&reco_backend_type=low_level&reco_id=9a226060-acf6-4b07-b154-99e64aaad1bb&c_id=/home/pom-recommendations/element&c_uid=4219d187-00e8-40a9-af57-6ac6b2d2eca1&c_id=/home/pom-recommendations/element&c_uid=bc4889e2-6e02-40c6-a794-50edf48f242e
+" target="_blank">Alucard shirt</a></h3>
+      <p>$128.00 MXN</p>
+    </div>
+
+     <section>
+          <img src="img/4.png" alt="Banner accesorios" class="banner">
+  </div>
+  </section>
+
+     <h1 id="seccion3">ACCESORIOS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/accesorios M/accesorio.webp" alt="Producto 1">
+      <h3><a href="https://us.mingalondon.com/products/unbreakable-ring-set" target="_blank">Unbreakable Ring Set</a></h3>
+
+      <p>$666.69 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/accesorios M/accesorio 3.jpg" alt="Producto 2">
+      <h3><a href="https://us.mingalondon.com/products/nevermind-buckle-belt" target="_blank">Nevermind Buckle Belt</a></h3>
+      <p>$1214.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/accesorios M/accesorio2.jpg" alt="Producto 3">
+      <h3><a href="https://www.amazon.com.mx/SERASAR-Brazalete-Brazaletes-Mu%C3%B1equera-Bisuteria/dp/B08K8RXHR2/ref=pd_rhf_dp_s_pd_sbs_rvi_d_sccl_2_5/135-4954080-6517123?pd_rd_w=MV0Ur&content-id=amzn1.sym.26cb1de2-7812-494b-977c-cca848eca5cb&pf_rd_p=26cb1de2-7812-494b-977c-cca848eca5cb&pf_rd_r=S69DEC12KN2SZ8BCNHRS&pd_rd_wg=EuFto&pd_rd_r=d604d122-4361-44ac-9d5f-79669f639229&pd_rd_i=B0FWKFXBVF&th=1&psc=1" target="_blank">Pulsera de Cuero Premium</a></h3>
+      <p>$420.00 MXN</p>
+    </div>
+
+  </div>
+
+  <section>
+          <img src="img/5.png" alt="Banner Tendencias" class="banner">
+  </div>
+  </section>
+
+<body>
+     <h1 id="seccion4">OFERTAS</h1>
+  <div class="linea"></div>
+
+  <div class="contenedor">
+    <div class="producto">
+      <img src="img/ofertas m/oferta 2.jpg" alt="Producto 1">
+      <h3><a href="https://www.viviennewestwood.com/en-mx/women/clothing/sweatshirts-and-t-shirts/paris-orb-classic-t-shirt-burgundy/3G010049-J001M--BURGUNDY.html" target="_blank">Paris Orb Classic T-shirt
+</a></h3>
+
+      <p>$200.00 MXN
+</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/ofertas m/oferta 10.png" alt="Producto 2">
+      <h3><a href="https://www.gucci.com/mx/es_mx/pr/men/ready-to-wear-for-men/knitwear-for-men/crewnecks-for-men/wool-sweater-with-gg-intarsia-p-770509XKDSJ1152" target="_blank">Sueter de lona</a></h3>
+      <p>$450.00 MXN</p>
+    </div>
+
+    <div class="producto">
+      <img src="img/ofertas m/oferta.jpg" alt="Producto 3">
+      <h3><a href="https://www.viviennewestwood.com/en-mx/women/clothing/knitwear/dual-tartan-cardigan-multi/3803005N-Y0041--MULTI.html" target="_blank">Dual Tartan Cardigan</a></h3>
+      <p>$250.00 MXN</p>
+    </div>
+  </div>
+
+    <footer id="seccion5">
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <ul class="social-list">
+        <li><img src="img/footer/IGicon.png" alt="Instagram"> Instagram</li>
+        <li><img src="img/footer/FBicon.png" alt="Facebook"> Facebook</li>
+        <li><img src="img/footer/TTicon.png" alt="TikTok"> TikTok</li>
+        <li><img src="img/footer/PIicon.png" alt="Pinterest"> Pinterest</li>
+      </ul>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contacto</h3>
+      <div class="contact-item">
+        <img src="img/footer/correoicon.png" alt="Correo"> aura@corroreal.com
+      </div>
+      <div class="contact-item">
+        <img src="img/footer/Phoneicon.png" alt="Teléfono"> (656) 420 6969
+      </div>
+    </div>
+
+    <div class="footer-section subscribe">
+      <h3>Suscríbete</h3>
+      <p>¡Escribe tu correo para enterarte de lo último en ofertas!</p>
+      <input type="email" placeholder="ejemplo@correo.com" />
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2025 AURA, All rights reserved.</p>
+      <img src="img/footer/logofooter.png" alt="Logo AURA" width="307px" height="113px">
+    </div>
+  </footer>
+
+</body>
+</html>
